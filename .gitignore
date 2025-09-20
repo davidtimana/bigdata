@@ -1,0 +1,9 @@
+# Archivos de datos grandes
+data_airbnb_mexico/*.csv
+data_airbnb_mexico/*.csv.gz
+
+# Archivos PDF grandes
+libros/*.pdf
+
+# Archivos del sistema
+.DS_Store

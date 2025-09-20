@@ -1,0 +1,68 @@
+Resumen Completo sobre Big Data: Conceptos, Arquitectura, Tecnologías y Aplicaciones - semana3
+Este documento sintetiza los conceptos fundamentales, las arquitecturas, las tecnologías clave, los modelos de análisis y las aplicaciones del Big Data, extrayendo información de todas las fuentes proporcionadas.
+1. ¿Qué es Big Data? Concepto e Importancia
+Big Data no es un software, sino un concepto que describe conjuntos de datos cuyas características (principalmente volumen, velocidad y variedad) superan la capacidad de las herramientas de software tradicionales para ser capturados, gestionados y procesados en un tiempo razonable. Su propósito fundamental es almacenar, procesar y analizar grandes colecciones de datos provenientes de diversas fuentes para extraer conocimiento, identificar patrones y, en última instancia, fundamentar la toma de decisiones estratégicas en las organizaciones.
+La relevancia del Big Data radica en su capacidad para convertir los datos en uno de los activos más valiosos para cualquier entidad, comparable al "nuevo petróleo" o al "nuevo oro". Permite a las organizaciones comprender mejor a sus clientes, optimizar operaciones, anticipar tendencias del mercado y crear nuevos productos o servicios. El origen del término se remonta a la década de 1980, cuando empresas como IBM anticiparon que la masificación de los ordenadores e internet generaría volúmenes de datos inmanejables para las tecnologías existentes.
+2. Las Características del Big Data (Las "V")
+El concepto de Big Data se define comúnmente a través de una serie de características conocidas como las "V", que han evolucionado con el tiempo:
+• Volumen: Se refiere a la enorme cantidad de datos generados, que se miden en terabytes, petabytes o incluso exabytes. Por ejemplo, Google procesa diariamente alrededor de 20 petabytes de datos.
+• Velocidad: Alude a la rapidez con la que los datos se generan, procesan y analizan, a menudo en tiempo real o casi real. Esto es crucial para aplicaciones como el monitoreo de redes sociales o transacciones financieras.
+• Variedad: Describe la diversidad de los tipos y fuentes de datos. Se clasifican principalmente en:
+    ◦ Datos Estructurados: Tienen un formato predefinido y un esquema rígido, como las tablas en una base de datos relacional (SQL). Representan aproximadamente el 7% de los datos existentes.
+    ◦ Datos No Estructurados: No tienen un modelo de datos predefinido, como imágenes, videos, audios, comentarios en redes sociales o correos electrónicos. Componen cerca del 90% de los datos mundiales.
+    ◦ Datos Semiestructurados: No se ajustan a un modelo formal pero contienen etiquetas para separar elementos, como archivos XML o JSON.
+• Veracidad: Se refiere a la calidad, fiabilidad y precisión de los datos. Es fundamental garantizar que los datos sean correctos para evitar tomar decisiones basadas en información errónea.
+• Valor: Destaca que el objetivo final es extraer utilidad y conocimiento de los datos. Los datos deben ser relevantes y aportar valor al negocio.
+• Visualización: La capacidad de presentar los datos y los resultados del análisis de forma gráfica y accesible para facilitar su comprensión.
+• Viabilidad: Se relaciona con la capacidad de una organización para utilizar eficazmente los datos que maneja, asegurando que el análisis sea pertinente y aplicable.
+3. Arquitectura y Procesamiento de Big Data
+El manejo de Big Data requiere arquitecturas específicas que se alejan de los enfoques tradicionales. El flujo de procesamiento se puede simplificar en cuatro etapas clave: recolección, almacenamiento, procesamiento y consumo/análisis.
+• Computación Distribuida: Es el principio fundamental. En lugar de que un solo equipo potente procese toda la información, se divide la tarea en fragmentos más pequeños que son gestionados simultáneamente por múltiples computadores (nodos) conectados en una red. Este modelo se caracteriza por el paralelismo, la escalabilidad, la tolerancia a fallos y una coordinación central.
+• Modelo ELT vs. ETL: A diferencia del enfoque tradicional ETL (Extraer, Transformar y Cargar), en Big Data se prefiere el modelo ELT (Extraer, Cargar y Transformar). Los datos se cargan primero en su estado bruto y las transformaciones se realizan después, lo que ofrece mayor flexibilidad.
+• Arquitectura Lambda: Propone un sistema de tres capas para manejar tanto datos en tiempo real como históricos: la Capa Batch (procesa todos los datos con alta latencia), la Capa de Servicio (ofrece vistas precalculadas de los datos históricos) y la Capa de Velocidad (procesa datos en tiempo real para complementar la latencia de la capa batch).
+• Arquitectura de Referencia NIST (NBDRA): Es un marco conceptual que estandariza los componentes de un sistema de Big Data, incluyendo roles como el Proveedor de Datos, el Proveedor de Aplicaciones, el Proveedor del Framework, el Consumidor de Datos y el Orquestador del Sistema.
+4. Tecnologías Fundamentales del Ecosistema Big Data
+• Apache Hadoop: Es un framework de código abierto esencial para el procesamiento distribuido. Sus componentes principales son:
+    ◦ HDFS (Hadoop Distributed File System): Un sistema de archivos que divide los datos en grandes bloques (ej. 128 MB) y los distribuye y replica a través de un clúster.
+    ◦ MapReduce: Un modelo de programación para procesar datos en paralelo. Divide una tarea en una fase de Map (procesamiento individual en nodos) y una de Reduce (agregación de resultados).
+    ◦ YARN (Yet Another Resource Negotiator): El gestor de recursos del clúster que asigna CPU y memoria a las aplicaciones.
+• Bases de Datos NoSQL ("Not Only SQL"): Son bases de datos no relacionales diseñadas para la escalabilidad y la flexibilidad, regidas por el Teorema CAP (Consistencia, Disponibilidad, Tolerancia a particiones). Se clasifican en:
+    ◦ Clave-Valor (ej. Redis): Almacena datos en pares simples.
+    ◦ Orientadas a Columnas (ej. HBase, Cassandra): Almacena datos en columnas, optimizando agregaciones.
+    ◦ Orientadas a Documentos (ej. MongoDB): Almacena datos en documentos flexibles como JSON.
+    ◦ De Grafos (ej. Neo4j): Especializadas en almacenar y navegar relaciones complejas.
+• Motores de Procesamiento y Consulta:
+    ◦ Apache Spark: Un motor de procesamiento unificado y rápido, conocido por su capacidad de procesamiento en memoria, lo que lo hace más veloz que MapReduce para muchas tareas.
+    ◦ SQL-on-Hadoop (ej. Hive, Presto, Spark SQL): Herramientas que permiten ejecutar consultas interactivas tipo SQL sobre datos almacenados en sistemas distribuidos como HDFS o bases NoSQL. Apache Hive es considerado el sistema de Data Warehouse de facto para Big Data.
+• Big Data Warehouse (BDW): Es la evolución del Data Warehouse tradicional, diseñado para el entorno Big Data. Se caracteriza por el almacenamiento y procesamiento distribuido, escalabilidad, capacidades en tiempo real y soporte para analítica compleja y datos no estructurados.
+5. Analítica y Visualización de Datos
+El objetivo final del Big Data es la analítica para extraer valor.
+• Tipos de Analítica:
+    1. Analítica Descriptiva: Responde a la pregunta "¿Qué pasó?". Se enfoca en eventos pasados, utilizando KPIs y dashboards.
+    2. Analítica Diagnóstica: Busca responder "¿Por qué pasó?". Intenta determinar la causa de un fenómeno.
+    3. Analítica Predictiva: Intenta responder "¿Qué podría pasar?". Utiliza modelos de machine learning para predecir eventos futuros.
+    4. Analítica Prescriptiva: Va un paso más allá y responde "¿Qué debería hacer?". Sugiere acciones para obtener un resultado deseado.
+• Ciencia de Datos y Machine Learning: La ciencia de datos es el campo que utiliza métodos científicos, procesos y algoritmos para extraer conocimiento de los datos. El Machine Learning (aprendizaje automático) es una de sus herramientas clave, con técnicas como clasificación, clustering y regresión para construir modelos predictivos.
+• Visualización de Datos: Es crucial para comunicar los hallazgos, ya que el 65% del aprendizaje humano es visual. Se utilizan gráficos de líneas, de barras, de tarta y mapas de calor, entre otros, para identificar patrones y tendencias. Herramientas como Tableau, Power BI y librerías de Python y R son comúnmente utilizadas.
+6. El Rol del Cloud Computing
+La computación en la nube es un habilitador fundamental para el Big Data, ya que proporciona acceso bajo demanda a recursos de TI escalables y de bajo costo.
+• Modelos de Servicio:
+    ◦ IaaS (Infraestructura como Servicio): Ofrece recursos básicos como servidores virtuales y almacenamiento.
+    ◦ PaaS (Plataforma como Servicio): Proporciona una plataforma para desarrollar y desplegar aplicaciones sin gestionar la infraestructura.
+    ◦ SaaS (Software como Servicio): Ofrece aplicaciones completas a través de internet.
+• Beneficios y Servicios: Permite crear clústeres transitorios, que se activan solo cuando se necesitan, optimizando costos. Proveedores como Amazon Web Services (AWS) ofrecen servicios gestionados como Amazon S3 (almacenamiento para data lakes), Amazon EMR (clústeres Hadoop gestionados) y AWS Lambda (cómputo sin servidor), que simplifican enormemente la implementación de arquitecturas de Big Data.
+7. Aplicaciones Sectoriales y Desafíos
+El Big Data se aplica en una amplia gama de sectores para optimizar procesos y generar valor.
+• Aplicaciones por Sector:
+    ◦ Investigación: En campos como la astronomía, meteorología y sociología, permite analizar grandes volúmenes de datos de sensores y simulaciones.
+    ◦ Finanzas: Detección de fraudes, análisis de riesgos de crédito y medición de la fidelización de clientes.
+    ◦ Empresas: Optimización de la cadena de suministro, marketing personalizado y mejora de la eficiencia operativa.
+    ◦ Gobierno: Planificación urbana, gestión del tráfico, políticas de salud pública y análisis demográfico.
+    ◦ Salud: Epidemiología, personalización de tratamientos y prevención de enfermedades.
+    ◦ Turismo: Creación de ofertas personalizadas y optimización de políticas de viaje ("Smart Tourism").
+• Desafíos:
+    ◦ Técnicos: La escalabilidad de los sistemas, garantizar la calidad de los datos (veracidad) y la integración de fuentes heterogéneas.
+    ◦ Costo: La infraestructura y el talento especializado necesarios pueden ser costosos, aunque el cloud y el hardware básico (commodity hardware) ayudan a mitigarlo.
+    ◦ Seguridad y Privacidad: Proteger grandes volúmenes de datos personales y confidenciales es un reto mayor, requiriendo un control de acceso robusto y el cumplimiento de normativas.
+    ◦ Organizacionales y de Talento: Se necesita personal con habilidades especializadas (científicos de datos, ingenieros de datos) y una cultura que promueva la toma de decisiones basada en datos, superando la resistencia al cambio.
+En conclusión, el Big Data ha evolucionado de un concepto teórico a un pilar estratégico que impulsa la innovación y la competitividad en la era digital, transformando la manera en que las organizaciones operan y toman decisiones.

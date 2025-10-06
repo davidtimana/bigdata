@@ -1,0 +1,81 @@
+I. Evolución de las Arquitecturas de TI y Paradigmas (Ryzko, D. 2020 - Cap. 2)
+La arquitectura de TI ha evolucionado desde aplicaciones monolíticas hasta arquitecturas de microservicios, siendo cada paso un desafío en el procesamiento, almacenamiento y análisis de datos.
+Arquitectura
+Descripción y Características Clave
+Implicaciones en Datos
+Monolítica (1990s)
+Aplicaciones grandes, con módulos acoplados e interdependencias fuertes. El desarrollo y mantenimiento son costosos y la escalabilidad es limitada.
+Análisis Sencillo: Se utiliza una única base de datos relacional (o un puñado de ellas) que se exporta a un data warehouse (DW) mediante procesos ETL (Extract, Transform, Load).
+SOA (Service Oriented Architecture) (2000s)
+Divide los sistemas en componentes reutilizables con APIs definidas y menos acoplamiento. Utiliza un Enterprise Service Bus (ESB) para coordinación, monitoreo y enrutamiento.
+EDA (Event-Driven Architecture): Se recurre a la arquitectura dirigida por eventos, donde los servicios publican eventos capturados por entidades suscritas (modelo push), lo que reduce la latencia en la transferencia de datos.
+Microservicios
+Composición de numerosos procesos pequeños, independientes y altamente desacoplados que se comunican mediante APIs ligeras (usando JSON o Protobuf, a menudo vía REST).
+Adopción de NoSQL: Impulsó la adopción generalizada de bases de datos NoSQL, ofreciendo flexibilidad de almacenamiento local para servicios específicos. Las soluciones de data analytics requieren la implementación de data pumps o mecanismos de publicación/suscripción (Kafka) para gestionar los cambios de datos en tiempo real.
+II. Paradigmas de Bases de Datos (Ryzko, D. 2020)
+Los sistemas distribuidos cambiaron los requisitos de las bases de datos, llevando a la evolución de los modelos de consistencia y almacenamiento.
+• ACID vs. BASE: Las propiedades ACID (Atomicidad, Consistencia, Independencia, Durabilidad) son inaplicables en sistemas distribuidos. El modelo BASE (Basically Available, Soft state, Eventually consistent) prioriza la disponibilidad sobre la consistencia.
+• Teorema CAP: En un sistema distribuido, solo se pueden garantizar dos de las tres propiedades a la vez: Consistencia, Disponibilidad, y Tolerancia a Particionamiento. La elección depende del caso de uso (ej. sistemas financieros necesitan Consistencia; DNS necesita Disponibilidad y Tolerancia a Particionamiento).
+• Bases de Datos NoSQL: Son flexibles y están optimizadas para tareas específicas, alejándose de los modelos relacionales. Se clasifican en:
+    ◦ Key-Value Stores: Almacenan pares clave-valor (ej. Redis, DynamoDB).
+    ◦ Wide Column Stores: Almacenamiento flexible por familias de columnas, sin esquema fijo (ej. Cassandra, HBase).
+    ◦ Document Stores: Enfoque sin esquema, que permite estructuras anidadas (ej. MongoDB).
+    ◦ Graph DBMS: Almacenan datos mapeados a nodos/aristas y permiten operaciones específicas de grafos (ej. Neo4j).
+III. Cloud Computing (Ryzko, D. 2020 / Clases)
+La computación en la nube es una tendencia que ofrece recursos asequibles y escalables a través de Internet bajo un modelo de pago por uso (pay-as-you-go).
+• Modelos de Servicio: IaaS (Infraestructura como Servicio), PaaS (Plataforma como Servicio), y SaaS (Software como Servicio).
+• Implementaciones: Nubes Públicas (AWS, Azure, GCP), Nubes Privadas (dentro de la empresa), e Híbridas. La nube es vista como la evolución de la virtualización, con sistemas distribuidos operando en grandes granjas de servidores.
+• Soluciones en la Nube: Proveedores como AWS EMR, Azure HDInsight, Snowflake y Databricks ofrecen servicios Big Data gestionados, a menudo simplificando la complejidad de la implementación de Hadoop y desacoplando el almacenamiento (ej. S3) del cómputo.
+IV. Conceptos Fundamentales y Requisitos de Big Data
+Los datos son el activo más importante para la toma de decisiones estratégicas.
+• Las V’s de Big Data: La definición se basa en la superación de las limitaciones tecnológicas impuestas por el crecimiento de los datos.
+    ◦ Volumen: Se refiere a la escala masiva de datos (se maneja en petabytes o magnitudes superiores).
+    ◦ Variedad: Diversidad de formatos de datos: estructurados (bases de datos relacionales), no estructurados (videos, texto, logs) y semiestructurados (XML, JSON). La mayoría de los datos son no estructurados (aprox. 90%).
+    ◦ Velocidad: La rapidez con la que se generan y deben procesarse los datos para que su análisis tenga valor (a menudo en tiempo real o casi real).
+    ◦ Veracidad: La confiabilidad y precisión de los datos (alta calidad de datos).
+    ◦ Valor: La utilidad que los datos aportan a la organización, más allá del mero almacenamiento.
+• Desafíos: Los proyectos de Big Data son costosos, requieren infraestructura especializada (servidores, software) y personal capacitado con habilidades avanzadas.
+• Seguridad y Privacidad: Es crucial proteger la información confidencial y garantizar el acceso solo a usuarios autorizados, a menudo a través de anonimización y cumplimiento regulatorio (ej. Habeas Data).
+V. Ciclo de Vida y Procesamiento (Santos, M., y Costa, C. 2020)
+El procesamiento de Big Data sigue un ciclo de vida bien definido (arquitectura) que difiere del procesamiento transaccional tradicional.
+• Arquitectura Big Data (5 Pasos):
+    1. Identificación del Origen de Datos: Determinar las fuentes de información (estructurada, no estructurada, etc.).
+    2. Obtención de Datos (Colección): Uso de herramientas para capturar datos desde la fuente de origen al sistema Big Data.
+    3. Almacenamiento: Guardar la información de manera distribuida y escalable.
+    4. Tratamiento/Procesamiento (CPE): Transformar y procesar los datos para darles sentido, ya sea por lotes (batch) o en streaming.
+    5. Utilización/Análisis: Aplicar analítica avanzada (predictiva, descriptiva) y visualizar los resultados para la toma de decisiones.
+• El Proceso de Datos (ETL/ELT): Existe una transición del modelo ETL a ELT (Extraer, Cargar, Transformar), donde los datos se cargan primero en un almacenamiento distribuido ("landing zone" o HDFS) y las transformaciones se realizan posteriormente.
+• Enriquecimiento (CPE): La etapa de Colección, Preparación y Enriquecimiento (CPE) implica limpiar, integrar, transformar, y agregar los datos, incluyendo la extracción de patrones o la aplicación de modelos de ciencia de datos para generar atributos predictivos.
+VI. Tecnologías y Arquitecturas Específicas
+• Hadoop: Framework de software clave para el procesamiento distribuido (MapReduce) y el almacenamiento distribuido (HDFS) de grandes volúmenes de datos en hardware básico (commodity hardware).
+    ◦ MapReduce: Paradigma de procesamiento que divide tareas grandes (map) para su ejecución distribuida en múltiples nodos y luego combina los resultados (reduce).
+    ◦ YARN: (Yet Another Resource Negotiator) Administrador de recursos que gestiona la asignación de contenedores (CPU/Memoria) en el clúster y monitorea los trabajos.
+    ◦ HDFS: Sistema de archivos distribuido que divide los datos en bloques para replicación, distribución y tolerancia a fallos.
+    ◦ Ecosistema: Incluye herramientas como Hive (SQL sobre Hadoop), Spark (procesamiento más rápido, en memoria), y Kafka (mensajería/streaming).
+• Arquitectura Lambda: Divide el sistema en una Capa de Lotes (datos históricos e inmutables), una Capa de Servicio (vistas pre-calculadas) y una Capa de Velocidad (procesamiento en tiempo real/incremental).
+• BDW (Big Data Warehouse): Debe tener escalabilidad, elasticidad, tolerancia a fallos, almacenamiento flexible y soporte para analítica mixta. Los BDW buscan reemplazar o complementar los DW tradicionales. El diseño promueve estructuras desnormalizadas llamadas Objetos Analíticos para evitar joins costosos.
+--------------------------------------------------------------------------------
+Apuntes Adicionales sobre Data Warehousing y Modelado de Datos
+Los siguientes puntos destacan conceptos avanzados de diseño de soluciones Big Data, provenientes principalmente de los capítulos 5 y 6, y las clases sobre arquitectura:
+• Data Locality: En arquitecturas de Big Data, el procesamiento debe estar lo más cerca posible del almacenamiento (processing closer to storage) para evitar mover grandes volúmenes de datos por la red.
+• Modelado de Objetos Analíticos: En el enfoque propuesto para BDW, los datos se estructuran como Objetos Analíticos, que son estructuras altamente desnormalizadas y autónomas (similar a una tabla flat) que contienen atributos descriptivos, analíticos (factuales o predictivos) y la clave de granularidad.
+• Outsourced Descriptive Families: Uso de Objetos Analíticos Complementarios (similares a dimensiones tradicionales, pero que contienen atributos analíticos) para evitar la redundancia extrema de datos descriptivos grandes, especialmente cuando se comparten entre múltiples objetos.
+• Modelado Inmutable: Se prefiere modelar los registros como eventos inmutables (append-only), evitando las operaciones de actualización y eliminación para simplificar el sistema y la tolerancia a fallos (inspirado en la Arquitectura Lambda).
+• Joins en BDW: Las operaciones de join (unión de tablas) son costosas en Big Data. Si son necesarias, se recomienda ejecutarlas sobre los resultados de subconsultas que ya han filtrado o agregado los datos previamente, reduciendo el volumen a unir.
+
+# Resumen de Recursos Bibliográficos Específicos para la Actividad
+
+## Ryzko, D. (2020). Modern Big Data Architectures: A Multi-Agent Systems Perspective
+
+### Capítulo 2: Evolution of IT Architectures (pp. 25-50)
+Este capítulo explora la evolución de las arquitecturas de TI desde enfoques monolíticos hasta microservicios, destacando cómo cada paradigma aborda el procesamiento de datos. Se enfatiza la transición a sistemas distribuidos, el uso de SOA y EDA, y la adopción de NoSQL para manejar la variedad y volumen de datos en entornos escalables (Ryzko, 2020).
+
+### Capítulo 5: Cloud Computing (pp. 81-96)
+Se detalla el rol de la computación en la nube en Big Data, incluyendo modelos de servicio (IaaS, PaaS, SaaS) y arquitecturas híbridas. Se discute la virtualización como base para la escalabilidad, con énfasis en la gestión de recursos distribuidos y la integración con tecnologías como Hadoop y Spark (Ryzko, 2020).
+
+## Santos, M., & Costa, C. (2020). Big Data: Concepts, Warehousing, and Analytics
+
+### Sección 2.4.1: Big Data Life Cycle and Requirements (pp. 23-60)
+Esta sección describe el ciclo de vida de Big Data, desde la identificación de fuentes hasta el análisis y utilización. Se abordan requisitos como escalabilidad, veracidad y valor, con un enfoque en arquitecturas ELT y la gestión de almacenamiento distribuido para manejar volúmenes masivos de datos (Santos & Costa, 2020).
+
+Este resumen complementa los apuntes previos, enfocándose en los aspectos técnicos de virtualización y almacenamiento virtual relevantes para la arquitectura de Big Data en entornos como Airbnb.
